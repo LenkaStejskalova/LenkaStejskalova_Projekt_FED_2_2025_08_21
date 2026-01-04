@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrace</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!--Záhlaví-->
+    <header>
+      <img class="icon" src="images/netflix-logo.png" alt="logo" />
+
+      <a href="index.html" class="button">Úvodní strana</a>
+    </header>
+
+    <!--Formulář-->
+    <section class="form-wrapper">
+      <form class="form" autocomplete="off">
+        <input type="text" placeholder="Křestní jméno" class="firstName" />
+        <input type="text" placeholder="Příjmení" class="lastName" />
+        <input
+          type="email"
+          placeholder="Přihlašovací email"
+          class="formEmail"
+        />
+        <input type="password" placeholder="Vaše heslo" class="password" />
+        <input type="password" placeholder="Heslo znovu" class="password2" />
+        <input type="submit" value="Odeslat" />
+
+        <!--Notifikace-->
+        <section class="notifications">
+          <p class="notificationFirstName">Vyplňte prosím křestní jméno.</p>
+          <p class="notificationLastName">Vyplňte prosím příjmení.</p>
+          <p class="notificationEmail">Vyplňte prosím email.</p>
+          <p class="notificationPassword">Zadejte prosím heslo.</p>
+          <p class="notificationPassword2">Zadejte prosím heslo znovu.</p>
+          <p class="notificationPassword3">Hesla mají být stejná.</p>
+        </section>
+      </form>
+    </section>
+
+    <script src="form.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,332 @@
+/* Obecné nastavení */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Times New Roman", sans-serif;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-size: clamp(22px, 6vw, 40px);
+}
+
+h2 {
+  font-size: clamp(14px, 4vw, 20px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-size: clamp(12px, 3.5vw, 15px);
+}
+
+/* Tlačítka */
+.button {
+  background-color: rgb(214, 28, 28);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: rgb(130, 14, 14);
+}
+
+.button:visited,
+.button:active,
+.button:focus {
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Úvodní strana */
+/* Záhlaví */
+header {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+@media (max-width: 320px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+    gap: 10px;
+  }
+}
+
+/* Logo */
+.icon {
+  height: 40px;
+  width: auto;
+}
+
+.icon img {
+  height: 100%;
+}
+
+/* První sekce */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-text {
+  color: white;
+  font-size: 50px;
+  max-width: 700px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-email {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hero-email input {
+  width: 100%;
+  max-width: 300px;
+  height: 33px;
+  background-color: black;
+  border: 0.5px solid white;
+  color: white;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.hero-email input::placeholder {
+  color: gray;
+}
+
+@media (max-width: 768px) {
+  .hero-email {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Druhá sekce */
+.films__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Patička */
+.footer {
+  color: gray;
+  padding: 80px 10px 40px 10px;
+}
+
+.footer ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer li:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .footer ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ikona šipky */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 40px;
+  color: rgb(214, 28, 28);
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+.scroll-top:hover {
+  color: rgb(130, 14, 14);
+}
+
+/* Stránka s formulářem pro registraci */
+/* Formulář */
+.form-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px 10px;
+}
+
+.form input {
+  width: 100%;
+  max-width: clamp(220px, 80vw, 400px);
+  height: clamp(42px, 6vw, 42px);
+  background-color: black;
+  border: 0.5px solid white;
+  color: white;
+  padding: 0 10px;
+  font-size: clamp(12px, 3.5vw, 12px);
+}
+
+.form input::placeholder {
+  color: gray;
+}
+
+form input[type="submit"] {
+  width: 100%;
+  height: 30px;
+  max-width: clamp(220px, 80vw, 400px);
+  font-size: clamp(12px, 3.5vw, 12px);
+}
+
+/* Notifikace */
+.notifications p {
+  display: none;
+  color: rgb(214, 28, 28);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+form input[type="submit"] {
+  background-color: rgb(214, 28, 28);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+form input[type="submit"]:hover {
+  background-color: rgb(130, 14, 14);
+}
+
+.form input.input-invalid {
+  border: 2px solid rgb(214, 28, 28);
+}
+
+.form input.input-valid {
+  border: 2px solid rgb(40, 180, 99);
+}
+
+/* Stránka s filmy */
+/* Záhlaví */
+.header-films {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+/* Roletka */
+.search {
+  width: 160px;
+  height: 33px;
+  background-color: black;
+  border: 0.5px solid rgb(214, 28, 28);
+  color: white;
+  padding: 0 20px;
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+
+.search-box {
+  margin-top: 20px;
+}
+
+/* Sekce filmů */
+.films-list {
+  min-height: 60vh;
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.film-box {
+  transition: 0.3s;
+  transform: rotate(5deg);
+}
+
+.film-box:hover {
+  transform: scale(1.05);
+}
+
+.film-box img {
+  width: 170px;
+  height: 240px;
+}
