@@ -34,6 +34,11 @@ const addFilmToWebsite = (image) => {
 const renderFilms = (films) => {
   // Vymazání předchozího obsahu
   filmsSection.innerHTML = "";
+  // Informace pro uživatele, když API vrátí prázdný výsledek
+  if (films.length === 0) {
+    filmsSection.innerHTML = "<p>Nenašly se žádné filmy.</p>";
+    return;
+  }
 
   films.forEach((item) => {
     // Kontrola existence obrázku
@@ -53,6 +58,12 @@ const getFilmsByQuery = (query) => {
     .then((response) => response.json())
     .then((data) => {
       renderFilms(data);
+    })
+    // Ochrana proti chybám, když API neodpoví
+    .catch((error) => {
+      // Zobrazit uživateli, že něco selhalo
+      filmsSection.innerHTML =
+        "<p>Nepodařilo se načíst filmy. Zkus to znovu.</p>";
     });
 };
 
